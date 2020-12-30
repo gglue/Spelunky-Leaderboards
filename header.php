@@ -16,7 +16,10 @@
 
    <style type = "text/css">
         .brand{
-            background: #cbb09c !important;
+            background: #00a86b !important;
+        }
+        .brandLight{
+            background: #79CDAE !important;
         }
    </style>
 </head>

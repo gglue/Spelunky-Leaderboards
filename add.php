@@ -1,5 +1,8 @@
 <?php
 
+    // Connect to database
+    include("config/db_connect.php");
+
     $character = $money = $place = $time = $vod = $comment = '';
     $errors = array('character' => '', 'money' => '', 'time' => '', 'place' => '', 'vod' => '');
     if(isset($_POST['submit'])){
@@ -14,7 +17,10 @@
 
         // Check if money input is properly filled in
         if (empty($_POST['money'])){
-            $errors['money'] = 'Please fill in the amount of money you earned!';
+            // Allow 0 value
+            if (!(is_numeric($_POST['money']))){
+                $errors['money'] = 'Please fill in the amount of money you earned!';
+            }
         }
         else {
             $money = htmlspecialchars($_POST['money']);
@@ -60,7 +66,29 @@
 
         // Redirect to home page if we found no errors
         if (!array_filter($errors)){
-            header('Location: index.php');
+
+            // Change VOD url to embeded
+            $vod = str_replace("watch?v=", "embed/", $vod);
+
+            // Save the input into variables
+            $character = mysqli_real_escape_string($conn, $character);
+            $time = mysqli_real_escape_string($conn, $time);
+            $place = mysqli_real_escape_string($conn, $place);
+            $vod = mysqli_real_escape_string($conn, $vod);
+            $comment = mysqli_real_escape_string($conn, $comment);
+            $money = mysqli_real_escape_string($conn, $money);
+
+            // Create SQL
+            $sql = "INSERT INTO run(characterID, time, placeID, url, comment, accountID, money) VALUES('$character', '$time', '$place', '$vod', '$comment', 1, '$money')";
+
+            if (mysqli_query($conn, $sql)){
+                // success
+                header('Location: index.php');
+            }
+            else {
+                // fail
+                echo 'Query error: ' . mysqli_error($conn);
+            }
         }
     }
 

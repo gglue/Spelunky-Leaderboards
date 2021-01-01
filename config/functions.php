@@ -69,4 +69,17 @@
         return $imageFile;
     }
 
+    // function to change the table's sorting order, reverse ascending/descending if same type of sort before
+    function reload(int $pageParam, string $sortParam, string $orderParam, string $previousSort){
+        if ($sortParam == $previousSort) {
+            if ($orderParam == 'ASC'){
+                $orderParam = 'DESC';
+            }
+            else{
+                $orderParam = 'ASC';
+            }
+        }
+        echo "index.php?page=" . $pageParam . '&sort=' . $sortParam . '&order=' . $orderParam;
+    }
+
 ?>

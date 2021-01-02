@@ -64,13 +64,13 @@
         // Get input from comment regardless
         $comment = htmlspecialchars($_POST['comment']);
 
-        // Redirect to home page if we found no errors
+        // Put the information into database and redirect if no query errors
         if (!array_filter($errors)){
 
             // Change VOD url to embeded
             $vod = str_replace("watch?v=", "embed/", $vod);
 
-            // Save the input into variables
+            // Save the input into sqli compatible variables
             $character = mysqli_real_escape_string($conn, $character);
             $time = mysqli_real_escape_string($conn, $time);
             $place = mysqli_real_escape_string($conn, $place);
@@ -79,10 +79,12 @@
             $money = mysqli_real_escape_string($conn, $money);
 
             // Create SQL
-            $sql = "INSERT INTO run(characterID, time, placeID, url, comment, accountID, money) VALUES('$character', '$time', '$place', '$vod', '$comment', 1, '$money')";
+            $sql = "INSERT INTO run(characterID, time, placeID, url, comment, accountID, money) VALUES('$character', '$time', '$place', '$vod', '$comment', 'GeneralGlue', '$money')";
 
+            // Check if action is successful
             if (mysqli_query($conn, $sql)){
                 // success
+                mysqli_close($conn);
                 header('Location: index.php');
             }
             else {

@@ -66,6 +66,6 @@
             <h1 class = "black-text"> No run exists! </h1>
 
         <?php endif; ?>
-        <?php include('footer.php'); ?>
     </section>
+    <?php include('footer.php'); ?>
 </html>

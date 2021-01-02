@@ -70,7 +70,7 @@
                         <th><a class = "white-text" href = <?php reload($page, 'createdAt', $order, $sort) ?>> Date Submitted </a> </th>
                         <th>
                             <a class = "white-text" href = <?php reload($page - 1, $sort, $order, 'no') ?>>
-                                 <-- &#160&#160 <?php echo $page ?> &#160&#160
+                                 <-- &nbsp&nbsp <?php echo $page ?> &nbsp&nbsp
                              </a>
                              <a class = "white-text" href = <?php reload($page + 1, $sort, $order, 'no') ?>>
                               -->
@@ -88,15 +88,12 @@
                             <th> <img src = "<?php echo levelToImage(htmlspecialchars($record['placeID'])) ?>" width="128" height="64"> </th>
                             <th> <?php echo htmlspecialchars($record['money']) ?> </th>
                             <th> <?php echo htmlspecialchars($record['createdAt']) ?> </th>
-                            <th> <a class = "white-text" href = "detail.php?id=<?php echo $record['runID']?>">More info </a> </th>
+                            <th> &nbsp <a class = "white-text" href = "detail.php?id=<?php echo $record['runID']?>">More info </a> </th>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
 
     </section>
-
-
-
     <?php include('footer.php'); ?>
 </html>

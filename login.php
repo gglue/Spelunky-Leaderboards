@@ -40,9 +40,6 @@
             // Free result from memory
             mysqli_free_result($result);
 
-            // Close connection to database
-            mysqli_close($conn);
-
             // If account doesn't exist let them know
             if (!isset($account)){
                 $errors['username'] = 'User does not exist! <br>';

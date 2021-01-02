@@ -12,7 +12,7 @@
         $id = mysqli_real_escape_string($conn, $_GET["id"]);
 
         // Make the SQL for finding the run
-        $sql = "SELECT * FROM ((run INNER JOIN characters ON run.characterID = characters.characterID) INNER JOIN places ON run.placeID = places.placeID) WHERE runID = $id";
+        $sql = "SELECT * FROM (((run INNER JOIN characters ON run.characterID = characters.characterID) INNER JOIN places ON run.placeID = places.placeID) INNER JOIN accounts ON run.accountID = accounts.accountID) WHERE runID = $id";
 
         // Get query results
         $result = mysqli_query($conn, $sql);
@@ -23,8 +23,6 @@
         // Free result from memory
         mysqli_free_result($result);
 
-        // Close connection to database
-        mysqli_close($conn);
     }
 ?>
 
@@ -41,7 +39,7 @@
                         <div class = "brandLight">
                             <img src = "<?php echo characterToImage(htmlspecialchars($record['characterID'])) ?>" width="64" height="64">
                             <img src = "<?php echo levelToImage(htmlspecialchars($record['placeID'])) ?>" width="128" height="64">
-                            <p><b>Runner: </b> <?php echo htmlspecialchars($record['accountID']) ?></p>
+                            <p><b>Runner: </b> <?php echo htmlspecialchars($record['username']) ?></p>
                             <p><b>Character used: </b> <?php echo htmlspecialchars($record['characterName']) ?></p>
                             <p><b>Furthest location: </b> <?php echo htmlspecialchars($record['placeName']) ?></p>
                             <p><b>Total elapsed time: </b> <?php echo htmlspecialchars($record['time']) ?></p>

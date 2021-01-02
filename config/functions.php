@@ -79,7 +79,7 @@
                 $orderParam = 'ASC';
             }
         }
-        echo "index.php?page=" . $pageParam . '&sort=' . $sortParam . '&order=' . $orderParam;
+        return "index.php?page=" . $pageParam . '&sort=' . $sortParam . '&order=' . $orderParam;
     }
 
 ?>

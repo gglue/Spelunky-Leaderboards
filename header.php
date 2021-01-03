@@ -6,6 +6,7 @@
     else{
         if (isset($_SESSION['saveduser'])){
             $saveduser = $_SESSION['saveduser'];
+            $savedID = $_SESSION['savedID'];
         }
     }
 ?>
@@ -34,6 +35,16 @@
         .brandLight{
             background: #79CDAE !important;
         }
+        body {
+          display: flex;
+          min-height: 100vh;
+          flex-direction: column;
+        }
+
+        main {
+          flex: 1 0 auto;
+
+        }
    </style>
 </head>
 
@@ -45,8 +56,8 @@
                     <ul id="nav-mobile" class="right">
                         <li> Welcome back <?php echo $saveduser ?>! &nbsp&nbsp&nbsp&nbsp</li>
                         <li><a href = "logout.php">Logout</a></li>
-                        <li><a href = "stats.php">Your Stats</a></li>
-                        <li><a href = "stats.php">Find Users</a></li>
+                        <li><a href = <?php echo "stats.php?user=" . $savedID ?> >Your Stats</a></li>
+                        <li><a href = "users.php">Find Users</a></li>
                         <li><a href = "add.php">Add Run</a></li>
                     </ul>
                 <?php else: ?>

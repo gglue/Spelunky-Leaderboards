@@ -71,38 +71,40 @@
 <!DOCTYPE html>
 <html>
     <?php include('header.php'); ?>
-    <section class = "container grey-text">
-        <h3 class = "center"> Sign up! </h3>
-        <form class = "col s12" action = "signup.php" method = "POST">
-            <div class = "row">
-                <div class = "input-field col s4 offset-s4">
-                    <input placeholder = "8-20 characters long with no special letters" name = "username" type = "text" value = <?php echo $username ?>>
-                    <label>Username: </label>
-                    <div class = "red-text"><?php echo $errors['username']; ?> </div>
-                </div>
-            </div>
-            <div class = "row">
-                <div class = "input-field col s4 offset-s4">
-                    <input placeholder = "8-20 characters long with at least a letter and a number" name = "password" type = "password">
-                    <label>Password: </label>
-                    <div class = "red-text"><?php echo $errors['password']; ?> </div>
-                </div>
-            </div>
-            <div class = "row">
-                <div class = "input-field col s4 offset-s4">
-                    <input placeholder = "Retype the same password" name = "confirmPassword" type = "password">
-                    <label>Confirm password: </label>
-                    <div class = "red-text"><?php echo $errors['confirmPassword']; ?> </div>
-                </div>
-            </div>
-            <div class = "row">
-                <div class = "center">
-                    <div class = "input-field">
-                        <button class="btn waves-effect waves-light" type="submit" value = TRUE name="signup">Sign up</button>
+    <main>
+        <section class = "container grey-text">
+            <h3 class = "center"> Sign up! </h3>
+            <form class = "col s12" action = "signup.php" method = "POST">
+                <div class = "row">
+                    <div class = "input-field col s4 offset-s4">
+                        <input placeholder = "8-20 characters, no special letters!" name = "username" type = "text" value = <?php echo $username ?>>
+                        <label>Username: </label>
+                        <div class = "red-text"><?php echo $errors['username']; ?> </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </section>
+                <div class = "row">
+                    <div class = "input-field col s4 offset-s4">
+                        <input placeholder = "8-20 characters, 1 letter, 1 capital, no special letters!" name = "password" type = "password">
+                        <label>Password: </label>
+                        <div class = "red-text"><?php echo $errors['password']; ?> </div>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "input-field col s4 offset-s4">
+                        <input placeholder = "Re-type the same password" name = "confirmPassword" type = "password">
+                        <label>Confirm password: </label>
+                        <div class = "red-text"><?php echo $errors['confirmPassword']; ?> </div>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "center">
+                        <div class = "input-field">
+                            <button class="btn waves-effect waves-light" type="submit" value = TRUE name="signup">Sign up</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
     <?php include('footer.php'); ?>
 </html>

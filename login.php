@@ -64,33 +64,35 @@
 <!DOCTYPE html>
 <html>
     <?php include('header.php'); ?>
-    <section class = "container grey-text">
-        <h3 class = "center">Login!</h3>
-        <form class = "col s12" action = "login.php" method = "POST">
-            <div class = "row">
-                <div class = "input-field col s4 offset-s4">
-                    <input placeholder = "&nbsp" name = "username" type = "text" value = <?php echo $username ?>>
-                    <label>Username: </label>
-                    <div class = "red-text"><?php echo $errors['username']; ?> </div>
-                </div>
-            </div>
-            <div class = "row">
-                <div class = "input-field col s4 offset-s4">
-                    <input placeholder = "&nbsp" name = "password" type = "password">
-                    <label>Password: </label>
-                    <div class = "red-text"><?php echo $errors['password']; ?> </div>
-                    <a href = "signup.php"> <p class = "center"> No account? Sign up now! </p> </a>
-                </div>
-            </div>
-            <div class = "row">
-                <div class = "center">
-                    <div class = "input-field">
-                        <button class="btn waves-effect waves-light" type="submit" value = TRUE name="login">Login</button>
+    <main>
+        <section class = "container grey-text">
+            <h3 class = "center">Login!</h3>
+            <form class = "col s12" action = "login.php" method = "POST">
+                <div class = "row">
+                    <div class = "input-field col s4 offset-s4">
+                        <input placeholder = "&nbsp" name = "username" type = "text" value = <?php echo $username ?>>
+                        <label>Username: </label>
+                        <div class = "red-text"><?php echo $errors['username']; ?> </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </section>
+                <div class = "row">
+                    <div class = "input-field col s4 offset-s4">
+                        <input placeholder = "&nbsp" name = "password" type = "password">
+                        <label>Password: </label>
+                        <div class = "red-text"><?php echo $errors['password']; ?> </div>
+                        <a href = "signup.php"> <p class = "center"> No account? Sign up now! </p> </a>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "center">
+                        <div class = "input-field">
+                            <button class="btn waves-effect waves-light" type="submit" value = TRUE name="login">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
     <?php include('footer.php'); ?>
 
 </section>

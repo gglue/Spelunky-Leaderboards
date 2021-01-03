@@ -29,41 +29,43 @@
 <!DOCTYPE html>
 <html>
     <?php include('header.php'); ?>
-    <!-- Displays run only if it exists -->
-    <section class = "container white-text center">
-        <?php if ($record): ?>
-            <div class = "row">
-                <div class = "col s8 offset-s2">
-                    <div class = "brand">
-                        <h2> Run Details </h2>
-                        <div class = "brandLight">
-                            <img src = "<?php echo characterToImage(htmlspecialchars($record['characterID'])) ?>" width="64" height="64">
-                            <img src = "<?php echo levelToImage(htmlspecialchars($record['placeID'])) ?>" width="128" height="64">
-                            <p><b>Runner: </b> <?php echo htmlspecialchars($record['username']) ?></p>
-                            <p><b>Character used: </b> <?php echo htmlspecialchars($record['characterName']) ?></p>
-                            <p><b>Furthest location: </b> <?php echo htmlspecialchars($record['placeName']) ?></p>
-                            <p><b>Total elapsed time: </b> <?php echo htmlspecialchars($record['time']) ?></p>
-                            <p><b>Total money ($): </b> <?php echo htmlspecialchars($record['money']) ?></p>
-                            <p><b>Runner's comments: </b> <?php echo htmlspecialchars($record['comment']) ?></p>
+    <main>
+        <!-- Displays run only if it exists -->
+        <section class = "container white-text center">
+            <?php if ($record): ?>
+                <div class = "row">
+                    <div class = "col s8 offset-s2">
+                        <div class = "brand">
+                            <h2> Run Details </h2>
+                            <div class = "brandLight">
+                                <img src = "<?php echo characterToImage(htmlspecialchars($record['characterID'])) ?>" width="64" height="64">
+                                <img src = "<?php echo levelToImage(htmlspecialchars($record['placeID'])) ?>" width="128" height="64">
+                                <p><b>Runner: </b> <a class = "white-text" href = "stats.php?user=<?php echo $record['accountID']?>"><?php echo htmlspecialchars($record['username']) ?></p>
+                                <p><b>Character used: </b> <?php echo htmlspecialchars($record['characterName']) ?></p>
+                                <p><b>Furthest location: </b> <?php echo htmlspecialchars($record['placeName']) ?></p>
+                                <p><b>Total elapsed time: </b> <?php echo htmlspecialchars($record['time']) ?></p>
+                                <p><b>Total money ($): </b> <?php echo htmlspecialchars($record['money']) ?></p>
+                                <p><b>Runner's comments: </b> <?php echo htmlspecialchars($record['comment']) ?></p>
 
-                            <!-- Embed vod only if it exists -->
-                            <?php if ($record['url'] != NULL): ?>
-                                <iframe width="420" height="345" src=<?php echo htmlspecialchars($record['url'])?> > </iframe>
-                            <?php else: ?>
-                                <h4> VOD not uploaded! </h4>
-                            <?php endif; ?>
+                                <!-- Embed vod only if it exists -->
+                                <?php if ($record['url'] != NULL): ?>
+                                    <iframe width="420" height="345" src=<?php echo htmlspecialchars($record['url'])?> > </iframe>
+                                <?php else: ?>
+                                    <h4> VOD not uploaded! </h4>
+                                <?php endif; ?>
 
-                            <p><b>Date submitted: </b> <?php echo htmlspecialchars($record['createdAt']) ?></p>
+                                <p><b>Date submitted: </b> <?php echo htmlspecialchars($record['createdAt']) ?></p>
+                            </div>
                         </div>
+
                     </div>
-
                 </div>
-            </div>
 
-        <?php else: ?>
-            <h1 class = "black-text"> No run exists! </h1>
+            <?php else: ?>
+                <h1 class = "black-text"> No run exists! </h1>
 
-        <?php endif; ?>
-    </section>
+            <?php endif; ?>
+        </section>
+    </main>
     <?php include('footer.php'); ?>
 </html>

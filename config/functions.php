@@ -82,4 +82,17 @@
         return "index.php?page=" . $pageParam . '&sort=' . $sortParam . '&order=' . $orderParam;
     }
 
+    // same function as above, but for a player page only
+    function userReload(int $pageParam, int $user, string $sortParam, string $orderParam, string $previousSort){
+        if ($sortParam == $previousSort) {
+            if ($orderParam == 'ASC'){
+                $orderParam = 'DESC';
+            }
+            else{
+                $orderParam = 'ASC';
+            }
+        }
+        return "stats.php?page=" . $pageParam . '&sort=' . $sortParam . '&order=' . $orderParam . '&user=' . $user;
+    }
+
 ?>

@@ -29,7 +29,7 @@
             $password = mysqli_real_escape_string($conn, $password);
 
             // Write query for SQL
-            $sql = "SELECT password FROM accounts WHERE username = \"" . $username . "\"";
+            $sql = "SELECT * FROM accounts WHERE username = \"" . $username . "\"";
 
             // Get query results
             $result = mysqli_query($conn, $sql);
@@ -39,7 +39,6 @@
 
             // Free result from memory
             mysqli_free_result($result);
-
             // If account doesn't exist let them know
             if (!isset($account)){
                 $errors['username'] = 'User does not exist! <br>';
@@ -47,12 +46,14 @@
 
             // If password wrong let them know
             else{
-                if (password_verify($password, $account['password'])){
+                if (!password_verify($password, $account['password'])){
                     $errors['password'] = 'Wrong password! <br>';
                 }
 
                 // If everything goes right, redirect home
                 else{
+                    $_SESSION['saveduser'] = $username;
+                    $_SESSION['savedID'] = $account['accountID'];
                     header('Location: index.php');
                 }
             }
@@ -75,7 +76,7 @@
             </div>
             <div class = "row">
                 <div class = "input-field col s4 offset-s4">
-                    <input placeholder = "&nbsp" name = "password" type = "password" value = <?php echo $password ?>>
+                    <input placeholder = "&nbsp" name = "password" type = "password">
                     <label>Password: </label>
                     <div class = "red-text"><?php echo $errors['password']; ?> </div>
                     <a href = "signup.php"> <p class = "center"> No account? Sign up now! </p> </a>

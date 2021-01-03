@@ -61,7 +61,7 @@
                         <th><a class = "white-text" href = <?php echo reload($page, 'characterID', $order, $sort) ?>> Character </a> </th>
                         <th><a class = "white-text" href = <?php echo reload($page, 'time', $order, $sort) ?>> Time </a> </th>
                         <th><a class = "white-text" href = <?php echo reload($page, 'placeID', $order, $sort) ?>> Furthest </a> </th>
-                        <th><a class = "white-text" href = <?php echo reload($page, 'money', $order, $sort) ?>> Total Money </a> </th>
+                        <th><a class = "white-text" href = <?php echo reload($page, 'money', $order, $sort) ?>> Total Money ($) </a> </th>
                         <th><a class = "white-text" href = <?php echo reload($page, 'createdAt', $order, $sort) ?>> Date Submitted </a> </th>
                         <th>
                             <a class = "white-text" href = <?php echo reload($page - 1, $sort, $order, 'no') ?>>

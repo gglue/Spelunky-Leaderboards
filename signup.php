@@ -39,6 +39,9 @@
             if (!($_POST['confirmPassword'] == $_POST['password'])){
                 $errors['confirmPassword'] = 'Does not match to the password! <br>';
             }
+            else{
+                $password = $_POST['password'];
+            }
         }
 
         // Add user into the database with encrypted password

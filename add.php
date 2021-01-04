@@ -99,7 +99,7 @@
 <!DOCTYPE html>
 <html>
     <?php include("header.php"); ?>
-    <main>
+    <main style = "background : url('images/backgrounds/background.jpg'); background-size : cover">
         <section class = "container grey-text">
             <?php if (isset($saveduser)): ?>
                 <h4 class = "center">Add your Run!</h4>

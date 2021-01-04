@@ -64,7 +64,7 @@
 <!DOCTYPE html>
 <html>
     <?php include('header.php'); ?>
-    <main>
+    <main style = "background : url('images/backgrounds/background.jpg'); background-size : cover">
         <section class = "container grey-text">
             <h3 class = "center">Login!</h3>
             <form class = "col s12" action = "login.php" method = "POST">

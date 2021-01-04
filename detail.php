@@ -29,7 +29,7 @@
 <!DOCTYPE html>
 <html>
     <?php include('header.php'); ?>
-    <main>
+    <main style = "background : url('images/backgrounds/background.png'); background-size : cover">
         <!-- Displays run only if it exists -->
         <section class = "container white-text center">
             <?php if ($record): ?>

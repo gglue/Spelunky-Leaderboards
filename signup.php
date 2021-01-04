@@ -57,6 +57,8 @@
             // Check if action is successful
             if (mysqli_query($conn, $sql)){
                 // success
+                $_SESSION['saveduser'] = $username;
+                $_SESSION['savedID'] = $account['accountID'];
                 header('Location: index.php');
             }
             else {
@@ -71,7 +73,7 @@
 <!DOCTYPE html>
 <html>
     <?php include('header.php'); ?>
-    <main>
+    <main style = "background : url('images/backgrounds/background.jpg'); background-size : cover">
         <section class = "container grey-text">
             <h3 class = "center"> Sign up! </h3>
             <form class = "col s12" action = "signup.php" method = "POST">

@@ -27,7 +27,7 @@
     }
 
     // Determine first query result for current page
-    $resultsPerPage = 5;
+    $resultsPerPage = 10;
     $firstResult = ($page - 1) * $resultsPerPage;
 
     // Write query for all records
@@ -52,13 +52,14 @@
 <!DOCTYPE html>
 <html>
     <?php include('header.php'); ?>
-    <main>
+    <main style = "background : url('images/backgrounds/background.png'); background-size : cover">
         <section class = "container">
             <div class = "brand">
                 <h1 class = "center white-text brand"> Submitted Runs </h1>
                 <table class = "striped bordered white-text">
                     <thead>
                         <tr>
+                            <!-- Set the width so the table will stay same size -->
                             <th style = "width : 225px"><a class = "white-text" href = <?php echo reload($page, 'accountID', $order, $sort) ?>> Username </a> </th>
                             <th><a class = "white-text" href = <?php echo reload($page, 'characterID', $order, $sort) ?>> Character </a> </th>
                             <th><a class = "white-text" href = <?php echo reload($page, 'time', $order, $sort) ?>> Time </a> </th>

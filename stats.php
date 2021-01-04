@@ -60,17 +60,23 @@
         <section class = "container">
             <h4 class = "center"> &nbsp </h1>
             <?php
+                // Query checks if user exists
                 $userSQL = 'SELECT accountID FROM accounts WHERE accountID = ' . $user . ' LIMIT 1';
-                $userResult = mysqli_query($conn, $sql);
-                $userRecord = mysqli_fetch_assoc($userResult);
-                if($userRecord):
+                $userResult = mysqli_query($conn, $userSQL);
+                $userExists = mysqli_fetch_assoc($userResult);
+
+                // Query checks if at least one run exists
+                $userSQL = 'SELECT accountID FROM run WHERE accountID = ' . $user . ' LIMIT 1';
+                $userResult = mysqli_query($conn, $userSQL);
+                $runExists = mysqli_fetch_assoc($userResult);
+
+                if($userExists && $runExists):
             ?>
                 <div class = "row">
                     <div class = "col s5 brand">
                         <?php
 
                         // Get all user's stats by queries
-
                         $stats = array('username' => '', 'mostPlayed' => 1, 'runs' => 0, 'money' => 0, 'fastestWin' => "", 'wins' => 0, 'winRate' => 0.0, 'averageMoney' => 0, 'meanLevel' => 0);
 
                         // Make the SQL for finding all runs
@@ -177,7 +183,7 @@
                         </div>
                     </div>
             <?php else: ?>
-                <h3 class = "black-text center"> This user does not exist or has not submitted a run yet! </h1>
+                <h3 class = "white-text center"> This user does not exist or has not submitted a run yet! </h1>
             </section>
         <?php endif; ?>
         </main>

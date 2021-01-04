@@ -52,7 +52,7 @@
                     <ul id="nav-mobile" class="right">
                         <li> Not logged in! &nbsp&nbsp&nbsp&nbsp</li>
                         <li><a href = "login.php">Login</a></li>
-                        <li><a href = "stats.php">Find Users</a></li>
+                        <li><a href = "users.php">Find Users</a></li>
                     </ul>
                 <?php endif; ?>
             </div>

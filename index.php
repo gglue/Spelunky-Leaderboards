@@ -18,7 +18,7 @@
     // Determine how to sort
     // If doesn't exist, default to sort by date submitted ascending
     if (!isset($_GET['sort']) || !isset($_GET['order']) ){
-        $order = 'ASC';
+        $order = 'DESC';
         $sort = 'createdAt';
     }
     else {

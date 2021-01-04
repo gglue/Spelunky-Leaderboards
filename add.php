@@ -79,7 +79,7 @@
             $money = mysqli_real_escape_string($conn, $money);
             $savedID = mysqli_real_escape_string($conn,$_SESSION['savedID']);
             // Create SQL
-            $sql = "INSERT INTO run(characterID, time, placeID, url, comment, accountID, money) VALUES('$character', '$time', '$place', '$vod', '$comment', '$savedID', '$money')";
+            $sql = "INSERT INTO run(characterID, time, placeID, url, comment, accountID, money) VALUES('$character', '$time', $place, '$vod', '$comment', $savedID, '$money')";
 
             // Check if action is successful
             if (mysqli_query($conn, $sql)){

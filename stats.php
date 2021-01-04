@@ -29,8 +29,10 @@
     $resultsPerPage = 6;
     $firstResult = ($page - 1) * $resultsPerPage;
 
+    $user = $userExists = $runExists = '';
+
     // Get all the user's records if user exists
-    if (isset($_GET["user"])){
+    if ($_GET["user"]){
 
         // Receieve the data from the specified run
         $user = mysqli_real_escape_string($conn, $_GET["user"]);
@@ -61,15 +63,16 @@
             <h4 class = "center"> &nbsp </h1>
             <?php
                 // Query checks if user exists
-                $userSQL = 'SELECT accountID FROM accounts WHERE accountID = ' . $user . ' LIMIT 1';
-                $userResult = mysqli_query($conn, $userSQL);
-                $userExists = mysqli_fetch_assoc($userResult);
+                if ($user){
+                    $userSQL = 'SELECT accountID FROM accounts WHERE accountID = ' . $user . ' LIMIT 1';
+                    $userResult = mysqli_query($conn, $userSQL);
+                    $userExists = mysqli_fetch_assoc($userResult);
 
-                // Query checks if at least one run exists
-                $userSQL = 'SELECT accountID FROM run WHERE accountID = ' . $user . ' LIMIT 1';
-                $userResult = mysqli_query($conn, $userSQL);
-                $runExists = mysqli_fetch_assoc($userResult);
-
+                    // Query checks if at least one run exists
+                    $userSQL = 'SELECT accountID FROM run WHERE accountID = ' . $user . ' LIMIT 1';
+                    $userResult = mysqli_query($conn, $userSQL);
+                    $runExists = mysqli_fetch_assoc($userResult);
+                }
                 if($userExists && $runExists):
             ?>
                 <div class = "row">

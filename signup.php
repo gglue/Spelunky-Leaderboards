@@ -56,10 +56,8 @@
 
             // Check if action is successful
             if (mysqli_query($conn, $sql)){
-                // success
-                $_SESSION['saveduser'] = $username;
-                $_SESSION['savedID'] = $account['accountID'];
-                header('Location: index.php');
+                // success, then go back to login
+                header('Location: login.php');
             }
             else {
                 // fail, probably due to bad input

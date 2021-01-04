@@ -5,8 +5,9 @@
     // Functions used for database
     include("config/functions.php");
 
+    $record = '';
     // Check if a run is selected
-    if (isset($_GET["id"])){
+    if ($_GET["id"]){
 
         // Receieve the data from the specified run
         $id = mysqli_real_escape_string($conn, $_GET["id"]);
@@ -62,7 +63,7 @@
                 </div>
 
             <?php else: ?>
-                <h1 class = "black-text"> No run exists! </h1>
+                <h1 class = "white-text"> No run exists! </h1>
 
             <?php endif; ?>
         </section>

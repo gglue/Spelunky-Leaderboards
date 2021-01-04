@@ -40,6 +40,7 @@
                 $errors['confirmPassword'] = 'Does not match to the password! <br>';
             }
             else{
+                //Honestly should use htmlspecialchars(), but regex covered it lol
                 $password = $_POST['password'];
             }
         }

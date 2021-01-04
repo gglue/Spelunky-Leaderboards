@@ -1,15 +1,3 @@
-<?php
-    // Start the session if it has not been started yet
-    if(!isset($_SESSION)){
-        session_start();
-    }
-    else{
-        if (isset($_SESSION['saveduser'])){
-            $saveduser = $_SESSION['saveduser'];
-            $savedID = $_SESSION['savedID'];
-        }
-    }
-?>
 <head>
     <title> Spelunky Leaderboards </title>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

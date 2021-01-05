@@ -1,6 +1,6 @@
 # Spleunky Leaderboard Website
 
-This project is a website to store me and my friend's runs for the game Speleunky 2. I used PHP, mySQL and Materialize for the website.
+This project is a website to store me and my friend's runs for the game Speleunky 2. I used PHP, mySQL and Materialize for the website. This is my first PHP website so I decided to use a procedural design here.
 
 The project features:
 - A global leaderboard with clickable headers to sort by (SQL)
@@ -17,6 +17,8 @@ The project features:
 Clone/download the repo as a zip. If using XAMPP, drag the folder into your XAMPP/htdocs directory, then turn on Apache and mySQL.
 Click the Admin button on XAMPP of mySQL, create a new database and then import records.sql in the root directory. For online webhosts,
 the instructions vary.
+
+Alternatively, you can visit livictor.com/spleunky
 
 ### Prerequisites
 
